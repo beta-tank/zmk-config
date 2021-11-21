@@ -53,7 +53,6 @@
 //        | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | RALT |
 //                    | ESC | SPC | TAB |   | ENT | BSPC | DEL |
                         bindings = <
-            &kp ESC   &kp N1 &kp N2 &kp N3 &kp N4 &kp N5          &kp N6 &kp N7    &kp N8  &kp N9   &kp N0   &kp MINUS
    &kp LWIN &kp GRAVE &kp Q &kp W &kp E &kp R &kp T &kp Y         &kp U  &kp I     &kp O   &kp P    &kp LBKT &mt RWIN RBKT
             &kp LCTRL &kp A &kp S &kp D &kp F &kp G &kp H         &kp J  &kp K     &kp L   &kp SEMI &mt RCTRL SQT
             &rulang   &kp Z &kp X &kp C &kp V &kp B &kp N         &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
@@ -62,13 +61,11 @@
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// |  ESC |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
 // |     |  _  |  F1 |  F2 |  F3 |  F4 |  F5 |   |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |
 //       |  =  |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |  -  |
 //       |  +  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |     |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                        bindings = <
-          &kp GRAVE &kp F1 &kp F2   &kp F3   &kp F4    &kp F5      &kp F6       &kp F7    &kp F8   &kp F9    &kp F10         &kp EQUAL
    &trans &kp UNDER       &kp F1   &kp F2 &kp F3   &kp F4   &kp F5                     &kp F6    &kp F7   &kp F8   &kp F9   &kp F10  &kp F11 &mt RGUI F12
           &mt LCTRL EQUAL &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                  &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR &mt RCTRL MINUS
           &mt LALT PLUS   &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(LS(LA(B)))    &kp LC(LS(B))    &kp LSHFT   &kp N8   &kp N9   &kp LG(LS(S))   &trans
@@ -81,8 +78,7 @@
 //       |   =  |  *  |  4  |  5  |  6  |  +  |   | MUT | LEFT|  UP | DOWN| RGHT| INS |
 //       |      |  0  |  1  |  2  |  3  |  .  |   | VOLD| END | PRSC| PGDN| CALC| SCLK|
 //                          |     |     | ADJ |   | ADJ |     |     |
-                        bindings = <
-          &kp ESC  &kp N1 &kp N2 &kp N3 &kp N4 &kp N5    &kp N6 &kp N7  &kp N8   &kp N9  &kp N0   &kp MINUS             
+                        bindings = <       
    &trans &kp KP_NUM      &kp KP_SLASH    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS        &kp C_VOL_UP &kp HOME &kp K_APP &kp PG_UP &kp C_AL_MY_COMPUTER &kp CAPS &trans
           &mt LCTRL EQUAL &kp KP_MULTIPLY &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS         &kp C_MUTE   &kp LEFT &kp UP    &kp DOWN  &kp RIGHT  &mt RCTRL INS
           &trans          &kp KP_N0       &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_DOT          &kp C_VOL_DN &kp END  &kp PSCRN  &kp PG_DN &kp C_AL_CALC &kp SLCK
@@ -95,8 +91,7 @@
 //       | BTCLR| BT0 | BT1 | BT2 | BT3 | BT4 |   | BT4 | BT3 | BT2 | BT1 | BT0 | BTCLR|
 //       |      |     |     |     |    |     |   |     |     |     |     |     |      |
 //                          |     |     |     |   |     |     |     |
-                        bindings = <
-          &kp ESC  &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                      &kp N6 &kp N7  &kp N8   &kp N9  &kp N0   &kp MINUS                      
+                        bindings = <              
    &reset &bootloader  &none        &none        &out OUT_USB &out OUT_BLE &none           &none        &out OUT_BLE &out OUT_USB &none        &none         &bootloader &reset
           &none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &none
           &bt BT_CLR   &none        &none        &none        &none        &none           &none        &none        &none        &none        &none         &bt BT_CLR
