@@ -38,7 +38,7 @@
                 compatible = "zmk,combos";
                 combo_eng {
                     timeout-ms = <200>;
-                    key-positions = <49 54>;
+                    key-positions = <37 42>;
                     layers = <DEF>;
                     bindings = <&kp LC(LS(N2))>;
                 };
