@@ -48,12 +48,12 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// |  GUI |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   | GUI/] |
+// |  GUI |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   |  ]  |
 //        | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |CTRL/'|
 //        | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | RALT |
 //                    | ESC | SPC | TAB |   | ENT | BSPC | DEL |
                         bindings = <
-   &kp LWIN &kp GRAVE &kp Q &kp W &kp E &kp R &kp T &kp Y         &kp U  &kp I     &kp O   &kp P    &kp LBKT &mt RWIN RBKT
+   &kp LWIN &kp GRAVE &kp Q &kp W &kp E &kp R &kp T &kp Y         &kp U  &kp I     &kp O   &kp P    &kp LBKT       &kp RBKT
             &kp LCTRL &kp A &kp S &kp D &kp F &kp G &kp H         &kp J  &kp K     &kp L   &kp SEMI &mt RCTRL SQT
             &rulang   &kp Z &kp X &kp C &kp V &kp B &kp N         &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
                   &lt RSE ESC &mt LSHFT SPACE &lt LWR TAB         &lt LWR RET &kp BSPC &lt RSE DEL
@@ -75,12 +75,12 @@
                 raise_layer {
 // -----------------------------------------------------------------------------------------
 // |     | NMLK |  /  |  7  |  8  |  9  |  -  |   | VOLU| HOME| APP | PGUP|MYCOMP| CLCK|     |
-//       |   =  |  *  |  4  |  5  |  6  |  +  |   | MUT | LEFT|  UP | DOWN| RGHT| INS |
+//       |   =  |  *  |  4  |  5  |  6  |  +  |   | MUT | LEFT| DOWN|  UP | RGHT| INS |
 //       |      |  0  |  1  |  2  |  3  |  .  |   | VOLD| END | PRSC| PGDN| CALC| SCLK|
 //                          |     |     | ADJ |   | ADJ |     |     |
                         bindings = <       
    &trans &kp KP_NUM      &kp KP_SLASH    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS        &kp C_VOL_UP &kp HOME &kp K_APP &kp PG_UP &kp C_AL_MY_COMPUTER &kp CAPS &trans
-          &mt LCTRL EQUAL &kp KP_MULTIPLY &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS         &kp C_MUTE   &kp LEFT &kp UP    &kp DOWN  &kp RIGHT  &mt RCTRL INS
+          &mt LCTRL EQUAL &kp KP_MULTIPLY &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS         &kp C_MUTE   &kp LEFT &kp DOWN  &kp UP    &kp RIGHT  &mt RCTRL INS
           &trans          &kp KP_N0       &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_DOT          &kp C_VOL_DN &kp END  &kp PSCRN  &kp PG_DN &kp C_AL_CALC &kp SLCK
                                                            &trans &trans &lt ADJ TAB   &lt ADJ RET &trans &trans
                         >;
