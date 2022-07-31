@@ -1,0 +1,5 @@
+include:
+  - board: nrfmicro_13
+  - shield: rt-22_left
+  - shield: rt-22_right
+  - shield: settings_reset
