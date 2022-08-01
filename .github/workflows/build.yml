@@ -1,4 +1,13 @@
-on: [push, pull_request, workflow_dispatch]
+on:
+ pull_request:
+    types: [opened, reopened]
+    branches:
+      - main   
+ workflow_dispatch:
+ push:
+    branches:    
+      - 'master'
+      - 'rc'
 
 name: Build
 
