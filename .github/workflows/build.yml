@@ -8,6 +8,10 @@ on:
     branches:    
       - 'master'
       - 'rc'
+    paths:
+      - '.github/**'
+      - 'config/**'
+      - 'build.yaml'
 
 name: Build
 
