@@ -1,6 +1,5 @@
 /*
- * Copyright (c) 2020 The ZMK Contributors
- *
+ * Copyright (c) 2022 beta-tank
  * SPDX-License-Identifier: MIT
  */
 
@@ -13,8 +12,8 @@
 		compatible = "zmk,kscan-gpio-direct";
 		label = "KSCAN";
 		input-gpios
-		= <&pro_micro  0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-		, <&pro_micro  1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+		= <&pro_micro  1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+		, <&pro_micro  0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
 		, <&pro_micro  2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
 		, <&pro_micro  3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
 		, <&pro_micro  4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
