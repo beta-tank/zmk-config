@@ -5,8 +5,12 @@
 
  #include <behaviors.dtsi>
  #include <dt-bindings/zmk/keys.h>
+ #include <dt-bindings/zmk/bt.h>
+ #include <dt-bindings/zmk/outputs.h>
 
  /*
+
+ Tap combo "0" and "1" for BT pairing reset
 
  LEGEND: KEYCODE | NRFMICRO_PIN (ARDUINO_PIN)
 
@@ -26,13 +30,32 @@
  */
  
  / {
+        behaviors {
+                out_hold: out_hold {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "MOD_OUT_HOLD";
+                        #binding-cells = <2>;
+                        flavor = "hold-preferred";
+                        tapping-term-ms = <1000>;
+                        bindings = <&out>, <&kp>; //<&bt BT_CLR>
+                };
+        };
+        combos {
+                compatible = "zmk,combos";
+                combo_reset {
+                    timeout-ms = <200>;
+                    key-positions = <0 1>;
+                    layers = <0>;
+                    bindings = <&bt BT_CLR>;
+                };
+        };
         keymap {
                 compatible = "zmk,keymap";
                 default_layer {
                         bindings = <
                                 &kp N0
-                                &kp N1
-                                &kp N2 
+                                &out_hold OUT_BLE N1
+                                &out_hold OUT_USB N2 
                                 &kp N3
                                 &kp N4 
                                 &kp N5
