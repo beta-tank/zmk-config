@@ -17,6 +17,7 @@
 #define GAME 5
 
 /* Macro macro: */
+// source of macro https://github.com/AlaaSaadAbdo/zmk-config/blob/master/config/macros.dtsi
 #define str(s) #s
 #define MACRO(NAME, BINDINGS, WAITMS, TAPMS) \
   macro_##NAME: macro_##NAME { \
@@ -29,6 +30,7 @@
   };
 // sample macro: MACRO(nav, &macro_tap &kp LC(LS(N2)) &mo LWR &macro_pause_for_release &macro_release &mo LWR, 0, 10)
 
+// Switch lang, than hold mo layer
 #define LANGMACRO(NAME, LAYER, NUM) \
   macro_##NAME: macro_##NAME { \
       compatible = "zmk,behavior-macro"; \
@@ -43,6 +45,8 @@
         , <&macro_release &mo LAYER> \
         ; \
   };
+
+// Switch lang, then set to layer
 #define TOMACRO(NAME, LAYER, NUM) \
   tom_##NAME: tom_##NAME { \
       compatible = "zmk,behavior-macro"; \
@@ -55,7 +59,10 @@
         , <&macro_tap &to LAYER> \
         ; \
   };
+// Shortcut for call hold tap with macro
 #define htl(flavor, key) &flavor 0 key
+
+// Macko on hold, kp on tap
 #define HOLDMACRO(NAME, MACRO) \
   ht##NAME: hold_tap_##NAME { \
         compatible = "zmk,behavior-hold-tap"; \
@@ -84,15 +91,6 @@
                 };
                 HOLDMACRO(ru, <&macro_rus>)
                 HOLDMACRO(en, <&macro_eng>)
-                // mht: macros_hold_tap {
-                //         compatible = "zmk,behavior-hold-tap";
-                //         label = "MACROS_HOLD_TAP";
-                //         #binding-cells = <2>;
-                //         flavor = "tap-preferred";
-                //         tapping-term-ms = <200>;
-                //         bindings = <>, <&kp>;
-                //         quick_tap_ms = <200>;
-                //     };sdfzrsdfяяяяяяяяяяяяяяяяя
         };
         macros {
                 LANGMACRO(rus, LWR, N1)
@@ -102,12 +100,6 @@
         };
         combos {
                 compatible = "zmk,combos";
-                // combo_eng_eng {
-                //     timeout-ms = <200>;
-                //     key-positions = <37 42>;
-                //     layers = <ENG>;
-                //     bindings = <&kp LC(LS(N2))>;
-                // };
                 combo_eng_rus {
                         timeout-ms = <200>;
                         key-positions = <26 39>;
@@ -116,17 +108,11 @@
                     };
                 combo_rus_eng {
                         timeout-ms = <200>;
-                        //key-positions = <37 42>;
+                        //key-positions = <37 42>; // right half
                         key-positions = <31 39>;
                         layers = <ENG>, <RUS>;
                         bindings = <&tom_eng>;
                     };
-                // combo_rus_rus {
-                //         timeout-ms = <200>;
-                //         key-positions = <26 39>;
-                //         layers = <RUS>;
-                //         bindings = <&kp LC(LS(N1))>;
-                //     };
         };
         keymap {
                 compatible = "zmk,keymap";
@@ -145,18 +131,18 @@
                         >;
                 };
                 rus_layer {
-                        // -----------------------------------------------------------------------------------------
-                        // |  GUI |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   |  ]  |
-                        //        | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-                        //        | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | \ |
-                        //                    | ESC | SPC | TAB |   | ENT | BSPC | DEL |
-                                                bindings = <
-                           &kp LWIN &kp GRAVE &kp Q &kp W &kp E &kp R &kp T         &kp Y &kp U  &kp I     &kp O   &kp P    &kp LBKT  &kp RBKT
-                                    &kp LCTRL &kp A &kp S &kp D &kp F &kp G        &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-                                    &kp LALT   &kp Z &kp X &kp C &kp V &kp B         &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
-                                    &lt RSE ESC &mt LSHFT SPACE &lt LWR TAB         &lt LWR RET &kp BSPC &lt RSE DEL
-                                                >;
-                                        };
+// -----------------------------------------------------------------------------------------
+// |  GUI |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   |  ]  |
+//        | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+//        | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | \ |
+//                    | ESC | SPC | TAB |   | ENT | BSPC | DEL |
+                        bindings = <
+        &kp LWIN &kp GRAVE &kp Q &kp W &kp E &kp R &kp T         &kp Y &kp U  &kp I     &kp O   &kp P    &kp LBKT  &kp RBKT
+                &kp LCTRL &kp A &kp S &kp D &kp F &kp G        &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+                &kp LALT   &kp Z &kp X &kp C &kp V &kp B         &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
+                &lt RSE ESC &mt LSHFT SPACE &lt LWR TAB         &lt LWR RET &kp BSPC &lt RSE DEL
+                        >;
+                };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
 // |     |  _  |  F1 |  F2 |  F3 |  F4 |  F5 |   |  F6 |  F7 |  F8 |  F9 | F10  | F11 | F12 |
