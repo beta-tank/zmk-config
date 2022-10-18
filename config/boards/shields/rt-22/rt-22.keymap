@@ -125,16 +125,16 @@
         keymap {
                 compatible = "zmk,keymap";
 
-                eng_layer {
+                eng_layer { // https://github.com/binarybottle/engram with Z and Q swap
 // -----------------------------------------------------------------------------------------
 // |  GUI |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   |  ]  |
 //        | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 //        | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | \ |
 //                    | ESC | SPC | TAB |   | ENT | BSPC | DEL |
                         bindings = <
-   &kp LWIN &kp GRAVE &kp Z &kp Z &kp Z &kp R &kp T         &kp Y &kp U  &kp I     &kp O   &kp P    &kp LBKT  &kp RBKT
-            &kp LCTRL &kp A &kp S &kp D &kp F &kp G        &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-            &kp LALT   &kp Z &kp X &kp C &kp V &kp B         &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
+   &kp LWIN &kp GRAVE &kp B &kp Y &kp O &kp U &kp Z         &kp Q    &kp L &kp D &kp W &kp V &kp LBKT &kp RBKT
+            &kp LCTRL &kp C &kp I &kp E &kp A &kp COMMA     &kp DOT  &kp H &kp T &kp S &kp N &kp SQT
+            &kp LALT  &kp G &kp X &kp J &kp K &kp MINUS     &kp FSLH &kp R &kp M &kp F &kp P &kp BSLH
             &lt RSE ESC &mt LSHFT SPACE &lt LWR TAB         &lt LWR RET &kp BSPC &lt RSE DEL
                         >;
                 };
