@@ -13,6 +13,7 @@
 #define LWR 1
 #define RSE 2
 #define ADJ 3
+#define GAME 4
 
 &lt { quick_tap_ms = <200>; };
 &mt { quick_tap_ms = <200>; };
@@ -87,8 +88,21 @@
                         bindings = <              
    &reset &bootloader  &none        &none        &out OUT_USB &out OUT_BLE &none           &none        &out OUT_BLE &out OUT_USB &none        &none         &bootloader &reset
           &none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &none
-          &bt BT_CLR   &none        &none        &none        &none        &none           &none        &none        &none        &none        &none         &bt BT_CLR
+          &bt BT_CLR   &none        &none        &none        &none        &tog GAME       &none        &none        &none        &none        &none         &bt BT_CLR
                                                  &trans       &none        &trans          &trans       &none        &trans
+                        >;
+                };
+                game_layer {
+// -----------------------------------------------------------------------------------------
+// |  GUI |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   |  ]  |
+//        | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+//        | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | \ |
+//                    | ESC | SPC | TAB |   | ENT | BSPC | DEL |
+                        bindings = <
+   &kp LWIN &kp LALT  &kp LCTRL &kp Q &kp W &kp E &kp R         &kp Y &kp U  &kp I     &kp O   &kp P    &kp LBKT  &kp RBKT
+            &kp TAB   &kp LSHFT &kp A &kp S &kp D &kp F         &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+            &tog GAME &kp LCTRL &kp Z &kp X &kp C &kp V         &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
+                                  &kp E &kp SPACE &kp Q         &lt LWR RET &kp BSPC &lt RSE DEL
                         >;
                 };
         };
