@@ -26,6 +26,7 @@
                 #binding-cells = <0>;
                 bindings = <&kp LALT>, <&kp LC(N1)>;
                 mods = <(MOD_LSFT|MOD_RSFT)>;
+                keep-mods = <(MOD_LSFT|MOD_RSFT)>;
                 };
         };
         combos {
