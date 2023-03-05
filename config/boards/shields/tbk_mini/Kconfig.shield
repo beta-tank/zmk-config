@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: MIT
+
+config SHIELD_TBK_MINI_LEFT
+	def_bool $(shields_list_contains,tbk_mini_left)
+
+config SHIELD_TBK_MINI_RIGHT
+	def_bool $(shields_list_contains,tbk_mini_right)

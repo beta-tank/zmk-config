@@ -1,0 +1,31 @@
+/*
+ * SPDX-License-Identifier: MIT
+ */
+
+ #include <behaviors.dtsi>
+ #include <dt-bindings/zmk/keys.h>
+
+ #define DEF 0
+
+&lt { quick_tap_ms = <200>; };
+&mt { quick_tap_ms = <200>; };
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+// ---------------------------------------------------------------------------------
+// |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   |
+// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+// | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | \ |
+//                    | ESC | SPC | TAB |   | ENT | BSPC | DEL |
+                bindings = <
+    &kp GRAVE &kp Q &kp W &kp E &kp R &kp T         &kp Y &kp U  &kp I     &kp O   &kp P    &kp LBKT
+    &kp LCTRL &kp A &kp S &kp D &kp F &kp G         &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+    &kp LALT   &kp Z &kp X &kp C &kp V &kp B        &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
+             &kp ESC &mt LSHFT SPACE &kp TAB        &kp RET &kp BSPC &kp DEL
+                >;
+        };
+    };
+};

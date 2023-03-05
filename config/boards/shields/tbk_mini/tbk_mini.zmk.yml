@@ -1,0 +1,11 @@
+file_format: "1"
+id: tbk_mini
+name: TBK-Mini
+type: shield
+url: https://github.com/Bastardkb/TBK-Mini
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - tbk_mini_left
+  - tbk_mini_right
