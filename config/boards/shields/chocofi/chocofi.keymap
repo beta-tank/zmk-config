@@ -12,41 +12,85 @@
 #define FUN 6
 #define ADJ 7
 
+&lt { quick_tap_ms = <200>; };
+&mt { quick_tap_ms = <200>; };
+
 / {
         behaviors {
-                hm: homerow_mods {
+                hmr: homerow_mods_right {
                         compatible = "zmk,behavior-hold-tap";
-                        label = "HOMEROW_MODS";
+                        label = "HOMEROW_MODS_RIGHT";
                         #binding-cells = <2>;
-                        tapping-term-ms = <220>;
-                        quick_tap_ms = <0>;
-                        flavor = "balanced";
+                        flavor = "tap-unless-interrupted";
+                        tapping-term-ms = <500>;
+                        quick-tap-ms = <200>;
                         bindings = <&kp>, <&kp>;
+                        hold-trigger-key-positions = 
+                                <0  1  2  3  4 
+                                10 11 12 13 14 
+                                20 21 22 23 24 
+                                      30 31 32>;
+                };
+                hml: homerow_mods_left {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_MODS_LEFT";
+                        #binding-cells = <2>;
+                        flavor = "tap-unless-interrupted";
+                        tapping-term-ms = <500>;
+                        quick-tap-ms = <200>;
+                        bindings = <&kp>, <&kp>;
+                        hold-trigger-key-positions = 
+                                <5  6  7  8  9
+                                15 16 17 18 19
+                                25 26 27 28 29
+                                33 34 35>;
                 };
         };
 
         combos {
                 compatible = "zmk,combos";
-                combo_prev {
+                // combo_test {
+                //         timeout-ms = <50>;
+                //         key-positions = <5 6>;
+                //         layers = <BASE>;
+                //         bindings = <&kp N1>;
+                //    };
+
+                // i k
+                combo_lbkt {
                     timeout-ms = <50>;
                     key-positions = <7 17>;
-                    layers = <NAV>;
-                    bindings = <&kp LG(LS(LBRC))>;
+                    layers = <BASE>;
+                    bindings = <&kp LBKT>;
                 };
-
-                combo_next {
+                // k ,
+                combo_sqt {
                     timeout-ms = <50>;
-                    key-positions = <8 18>;
-                    layers = <NAV>;
-                    bindings = <&kp LG(LS(RBRC))>;
+                    key-positions = <17 27>;
+                    layers = <BASE>;
+                    bindings = <&kp SQT>;
+                };
+                // e d
+                combo_rbkt {
+                        timeout-ms = <50>;
+                        key-positions = <2 12>;
+                        layers = <BASE>;
+                        bindings = <&kp RBKT>;
+                };
+                // d c
+                combo_grave {
+                        timeout-ms = <50>;
+                        key-positions = <12 22>;
+                        layers = <BASE>;
+                        bindings = <&kp GRAVE>;
                 };
                 
-                combo_fat_arrow {
-                    timeout-ms = <50>;
-                    key-positions = <13 14>;
-                    layers = <NUM>;
-                    bindings = <&kp EQUAL>, <&kp GT>;
-                };
+        //         combo_fat_arrow {
+        //             timeout-ms = <50>;
+        //             key-positions = <13 14>;
+        //             layers = <NUM>;
+        //             bindings = <&kp EQUAL>, <&kp GT>;
+        //         };
         };
 
         keymap {
@@ -55,7 +99,7 @@
                 default_layer {
                         bindings = <
    &kp Q       &kp W       &kp E          &kp R          &kp T             &kp Y        &kp U         &kp I        &kp O       &kp P
-   &hm LGUI A  &hm LALT S  &hm LCTRL D    &hm LSHFT F    &kp G             &kp H        &hm LSHFT J   &hm LCTRL K  &hm LALT L  &hm LGUI SEMI
+   &hml LGUI A &hml LALT S &hml LSHFT D   &hml LCTRL F   &kp G             &kp H        &hmr LCTRL J  &hmr LSHFT K &hmr LALT L &hmr LGUI SEMI
    &kp Z       &kp X       &kp C          &kp V          &kp B             &kp N        &kp M         &kp COMMA    &kp DOT     &kp FSLH
                            &lt MEDIA ESC  &lt NAV SPACE  &lt MOUSE TAB     &lt SYM RET  &lt NUM BSPC  &lt FUN DEL
                         >;
@@ -63,17 +107,17 @@
 
                 nav_layer {
                         bindings = <
-   &none     &none         &none          &none          &none             &kp LC(LG(Z))  &kp LG(V)   &kp LG(C)    &kp LG(X)   &kp LG(Z)
-   &kp LGUI  &kp LALT      &kp LCTRL      &kp LSHFT      &none             &kp CAPS       &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT
-   &none     &none         &none          &none          &none             &kp INS        &kp HOME    &kp PG_DN    &kp PG_UP   &kp END
-                           &none          &none          &none             &kp RET        &kp BSPC    &kp DEL
+   &none             &none         &none          &none          &none             &kp LC(LG(Z))  &kp LG(V)   &kp UP     &kp LG(X)   &kp LG(Z)
+   &kp LGUI          &kp LALT      &kp LSHFT      &kp LCTRL      &none             &kp CAPS       &kp LEFT    &kp DOWN   &kp RIGHT   &kp LG(C)
+   &kp LC(LS(NUM_1)) &none         &none          &none          &none             &kp INS        &kp HOME    &kp PG_DN  &kp PG_UP   &kp END
+                                   &none          &none          &none             &kp RET        &kp BSPC    &kp DEL
                         >;
                 };
 
                 mouse_layer {
                         bindings = <
    &none       &none       &none          &none          &none             &none        &none         &none        &none       &none
-   &kp LGUI    &kp LALT    &kp LCTRL      &kp LSHFT      &none             &none        &none         &none        &none       &none
+   &kp LGUI    &kp LALT    &kp LSHFT      &kp LCTRL      &none             &none        &none         &none        &none       &none
    &none       &none       &none          &none          &none             &none        &none         &none        &none       &none
                            &mo ADJ        &none          &none             &none        &none         &none
                         >;
@@ -82,7 +126,7 @@
                 media_layer {
                         bindings = <
    &none       &none       &none          &none          &none             &kp LG(LS(N4))    &none         &kp C_BRI_DN  &kp C_BRI_UP  &none
-   &kp LGUI    &kp LALT    &kp LCTRL      &kp LSHFT      &none             &kp LG(LA(BSLH))  &kp LSHFT     &kp C_VOL_DN  &kp C_VOL_UP  &kp LGUI
+   &kp LGUI    &kp LALT    &kp LSHFT      &kp LCTRL      &none             &kp LG(LA(BSLH))  &kp LCTRL     &kp C_VOL_DN  &kp C_VOL_UP  &kp LGUI
    &none       &none       &none          &none          &none             &none             &none         &none         &none         &none
                            &none          &none          &mo ADJ           &kp C_STOP        &kp C_PP      &kp K_MUTE
                         >;
@@ -90,9 +134,9 @@
 
                 num_layer {
                         bindings = <
-   &kp LBKT    &kp N7      &kp N8         &kp N9         &kp RBKT          &none        &none         &none        &none       &none
-   &kp SQT     &kp N4      &kp N5         &kp N6         &kp EQUAL         &none        &kp LSHFT     &kp LCTRL    &kp LALT    &kp LGUI
-   &kp GRAVE   &kp N1      &kp N2         &kp N3         &kp BSLH          &none        &none         &none        &none       &none
+   &kp LBKT    &kp N4      &kp N5         &kp N6         &kp RBKT          &none        &none         &none        &none       &none
+   &kp SQT     &kp N1      &kp N2         &kp N3         &kp EQUAL         &none        &kp LCTRL     &kp LSHFT    &kp LALT    &kp LGUI
+   &kp GRAVE   &kp N7      &kp N8         &kp N9         &kp BSLH          &none        &none         &none        &none       &kp LC(LS(N2))
                            &kp DOT        &kp N0         &kp MINUS         &none        &none         &none
                         >;
                 };
@@ -100,7 +144,7 @@
                 sym_layer {
                         bindings = <
    &kp LBRC    &kp AMPS    &kp STAR       &kp LPAR       &kp RBRC          &none        &none         &none        &none       &none
-   &kp COLON   &kp DLLR    &kp PRCNT      &kp CARET      &kp PLUS          &none        &kp LSHFT     &kp LCTRL    &kp LALT    &kp LGUI
+   &kp COLON   &kp DLLR    &kp PRCNT      &kp CARET      &kp PLUS          &none        &kp LCTRL     &kp LSHFT    &kp LALT    &kp LGUI
    &kp TILDE   &kp EXCL    &kp AT         &kp HASH       &kp PIPE          &none        &none         &none        &none       &none
                            &kp LPAR       &kp RPAR       &kp UNDER         &none        &none         &mo ADJ
                         >;
@@ -109,7 +153,7 @@
                 fun_layer {
                         bindings = <
    &kp F12     &kp F7      &kp F8         &kp F9         &kp PSCRN         &none        &none         &none        &none       &none
-   &kp F11     &kp F4      &kp F5         &kp F6         &kp SLCK          &none        &kp LSHFT     &kp LCTRL    &kp LALT    &kp LGUI
+   &kp F11     &kp F4      &kp F5         &kp F6         &kp SLCK          &none        &kp LCTRL     &kp LSHFT    &kp LALT    &kp LGUI
    &kp F10     &kp F1      &kp F2         &kp F3         &kp PAUSE_BREAK   &none        &none         &none        &none       &none
                            &kp K_APP      &kp SPACE      &kp TAB           &mo ADJ      &none         &none
                         >;
@@ -117,10 +161,10 @@
 
                 adj_layer {
                         bindings = <
-   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 &bt BT_SEL 4  &none        &none   &none   &none   &none
-   &bt BT_CLR    &bt BT_PRV    &bt BT_NXT    &reset       &bootloader   &bootloader  &reset  &none   &none   &none
-   &out OUT_TOG  &out OUT_BLE  &out OUT_USB  &none        &none         &none        &none   &none   &none   &none
-                               &none         &none        &none         &none        &none   &none
+     &bootloader  &reset        &none         &out OUT_USB &out OUT_BLE      &none   &none   &none   &bootloader  &reset
+     &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 &bt BT_SEL 4      &none   &none   &none   &none        &none
+     &bt BT_CLR   &none         &none         &none        &none             &none   &none   &none   &none        &none   
+                                &none         &none        &none             &none   &none   &none
                         >;
                 };
         };
