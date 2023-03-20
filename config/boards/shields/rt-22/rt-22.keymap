@@ -117,6 +117,7 @@
                     };
                 combo_rus_eng {
                         timeout-ms = <COMBO_TIMEOUT>;
+                        // key-positions = <31 39>; // left half test positions
                         key-positions = <37 42>; // right half
                         layers = <ENG>, <RUS>;
                         bindings = <&tom_eng>;
