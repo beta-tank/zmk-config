@@ -16,7 +16,7 @@ build-test(){
 base-build() ( # use subshell
     set -e # to exit the subshell as soon as an error happens
     cd $ZMK_PATH
-    rm -rf build # clean buld folder
+    rm -rf build # clean build folder
     west build \
         -s app \
         -d build \
