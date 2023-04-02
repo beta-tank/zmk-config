@@ -21,9 +21,11 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-vscode.cpptools",
-        "spadin.zmk-tools"
-      ], 
+		"ms-vscode.cpptools",
+		"spadin.zmk-tools",
+		"eamodio.gitlens",
+		"mhutchie.git-graph"
+	], 
       "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
       }
