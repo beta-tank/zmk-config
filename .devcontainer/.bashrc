@@ -9,6 +9,11 @@ build-rt22(){
     base-build nrfmicro_13 rt-22_right
 }
 
+build-tbk-mini(){
+    base-build nrfmicro_13 tbk_mini_left
+    base-build nrfmicro_13 tbk_mini_right
+}
+
 build-test(){
     base-build nrfmicro_13 test-board
 }
