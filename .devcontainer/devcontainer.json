@@ -22,7 +22,10 @@
     "vscode": {
       "extensions": [
         "ms-vscode.cpptools",
-        "spadin.zmk-tools"
+        "spadin.zmk-tools",
+        "eamodio.gitlens",
+        "ms-azuretools.vscode-docker",
+        "yzhang.markdown-all-in-one"
       ], 
       "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
