@@ -25,8 +25,8 @@
                 label = "RUS_LANG";
                 #binding-cells = <0>;
                 bindings = <&kp LALT>, <&kp LC(N1)>;
-                mods = <(MOD_LSFT|MOD_RSFT)>;
-                keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+                mods = <(LSHIFT|RSHIFT)>;
+                keep-mods = <(LSHIFT|RSHIFT)>;
                 };
         };
         combos {
@@ -87,7 +87,7 @@
 //       | BTCLR|     |     |     |     |     |   |     |     |     |     |     | BTCLR|
 //                          |     |     |     |   |     |     |     |
                         bindings = <              
-   &reset &bootloader  &none        &none        &out OUT_USB &out OUT_BLE &none           &none        &out OUT_BLE &out OUT_USB &none        &none         &bootloader &reset
+   &sys_reset &bootloader  &none        &none        &out OUT_USB &out OUT_BLE &none           &none        &out OUT_BLE &out OUT_USB &none        &none         &bootloader &sys_reset
           &none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &none
           &bt BT_CLR   &none        &none        &none        &none        &tog GAME       &none        &none        &none        &none        &none         &bt BT_CLR
                                                  &trans       &none        &trans          &trans       &none        &trans
