@@ -9,6 +9,11 @@ build-rt22(){
     base-build nrfmicro_13 rt-22_right
 }
 
+build-chocofi(){
+    base-build nrfmicro_13 chocofi_left
+    base-build nrfmicro_13 chocofi_right
+}
+
 build-test(){
     base-build nrfmicro_13 test-board
 }

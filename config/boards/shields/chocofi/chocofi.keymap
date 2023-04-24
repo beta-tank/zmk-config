@@ -109,7 +109,7 @@
                         bindings = <
    &none             &none         &none          &none          &none             &kp LC(LG(Z))  &kp LG(V)   &kp UP     &kp LG(X)   &kp LG(Z)
    &kp LGUI          &kp LALT      &kp LSHFT      &kp LCTRL      &none             &kp CAPS       &kp LEFT    &kp DOWN   &kp RIGHT   &kp LG(C)
-   &kp LC(LS(NUM_1)) &none         &none          &none          &none             &kp INS        &kp HOME    &kp PG_DN  &kp PG_UP   &kp END
+   &kp LC(LS(N1)) &none         &none          &none          &none             &kp INS        &kp HOME    &kp PG_DN  &kp PG_UP   &kp END
                                    &none          &none          &none             &kp RET        &kp BSPC    &kp DEL
                         >;
                 };
@@ -161,7 +161,7 @@
 
                 adj_layer {
                         bindings = <
-     &bootloader  &reset        &none         &out OUT_USB &out OUT_BLE      &none   &none   &none   &bootloader  &reset
+     &bootloader  &sys_reset        &none         &out OUT_USB &out OUT_BLE      &none   &none   &none   &bootloader  &sys_reset
      &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3 &bt BT_SEL 4      &none   &none   &none   &none        &none
      &bt BT_CLR   &none         &none         &none        &none             &none   &none   &none   &none        &none   
                                 &none         &none        &none             &none   &none   &none
