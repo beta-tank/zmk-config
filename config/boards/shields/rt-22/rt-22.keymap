@@ -57,6 +57,22 @@
         ; \
   };
 
+// Switch lang, than press key
+#define KP_LANG_MACRO(NAME, KEY, NUM, RETURN_NUM) \
+  kp_##NAME: macro_##NAME { \
+      compatible = "zmk,behavior-macro"; \
+      label = str(macro_##NAME); \
+      #binding-cells = <0>; \
+      wait-ms = <SWITCH_COMBO_WAIT_MS>; \
+      tap-ms = <SWITCH_COMBO_TAP_MS>; \
+      bindings \
+        = <&macro_tap &kp langswitch(NUM)> \
+        , <&macro_tap &kp KEY> \
+        , <&macro_tap_time SWITCH_COMBO_TAP_MS> \
+        , <&macro_tap &kp langswitch(RETURN_NUM)> \
+        ; \
+  };
+
 // Switch lang, then set to layer
 #define TO_MACRO(NAME, LAYER, NUM) \
   tom_##NAME: tom_##NAME { \
@@ -92,7 +108,7 @@
 
 / {
         behaviors {
-                rulang: russian_language {
+                rulang: russian_language { // unused for now
                 compatible = "zmk,behavior-mod-morph";
                 label = "RUS_LANG";
                 #binding-cells = <0>;
@@ -106,6 +122,7 @@
                 LANG_MACRO(lwr_rus, LWR, N2, N1)
                 TO_MACRO(rus, RUS, N1)
                 TO_MACRO(eng, ENG, N2)
+                KP_LANG_MACRO(number, HASH, N1, N2)
         };
         combos {
                 compatible = "zmk,combos";
@@ -121,6 +138,13 @@
                         key-positions = <37 42>; // right half
                         layers = <ENG>, <RUS>;
                         bindings = <&tom_eng>;
+                    };
+                combo_number_on_lower {
+                        timeout-ms = <COMBO_TIMEOUT>;
+                        // key-positions = <31 39>; // left half test positions
+                        key-positions = <0>; // right half
+                        layers = <LWR>;
+                        bindings = <&kp_number>;
                     };
         };
         keymap {
@@ -159,9 +183,9 @@
 //       |  +  |     |     |     |     |  RD |   |  RD |SHIFT|     |     |SCREEN|     |
 //                   | GUI |     | SPC |         | ENT |     | ALT |
                        bindings = <
-   &trans &kp UNDER       &kp F1    &kp F2    &kp F3      &kp F4    &kp F5               &kp F6        &kp F7    &kp F8   &kp F9   &kp F10       &kp F11   &mt RGUI F12
-          &mt LCTRL EQUAL &kp EXCL  &kp AT    &kp HASH    &kp DLLR  &kp PRCNT            &kp CARET     &kp AMPS  &kp STAR &kp LPAR &kp RPAR      &kp MINUS
-          &mt LALT PLUS   &kp LC(Z) &kp LC(X) &kp LC(C)   &kp LC(V) &kp LC(LS(LA(B)))    &kp LC(LS(B)) &kp LSHFT &kp N8   &kp N9   &kp LG(LS(S)) &trans
+   &none &kp UNDER       &kp F1    &kp F2    &kp F3      &kp F4    &kp F5               &kp F6        &kp F7    &kp F8   &kp F9   &kp F10       &kp F11   &mt RGUI F12
+          &mt LCTRL HASH &kp LPAR  &kp EQUAL    &kp EXCL    &kp MINUS  &kp LS(BSLH)            &kp AMPS     &kp LS(FSLH)  &kp LS(SQT) &kp LS(SEMI) &kp RPAR  &kp DLLR
+          &mt LALT PLUS   &kp LC(Z) &kp LC(X) &kp LC(C)   &kp AT &kp LC(LS(LA(B)))    &kp LC(LS(B)) &kp PRCNT &trans    &kp LSHFT   &kp LG(LS(S)) &kp CARET
                                               &lt ADJ ESC &trans    &trans               &trans        &trans    &lt ADJ DEL
                        >;
                 };

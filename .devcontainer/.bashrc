@@ -19,6 +19,10 @@ build-tbk-mini(){
     base-build nrfmicro_13 tbk_mini_right
 }
 
+build-reset(){
+    base-build nrfmicro_13 settings_reset
+}
+
 build-test(){
     base-build nrfmicro_13 test-board
 }
