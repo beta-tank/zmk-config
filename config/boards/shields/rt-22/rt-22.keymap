@@ -16,10 +16,10 @@
 #define ADJ 4
 #define GAME 5
 
-#define SWITCH_COMBO_TAP_MS 40
+#define SWITCH_COMBO_TAP_MS 30
 #define SWITCH_COMBO_WAIT_MS 0
-#define HOLD_SWITHC_TAPPING_MS 200
-#define HOLD_SWITHC_QUICK_TAP_MS 200
+#define HOLD_SWITHC_TAPPING_MS 150
+#define HOLD_SWITHC_QUICK_TAP_MS 150
 #define COMBO_TIMEOUT 200
 
 
@@ -106,9 +106,10 @@
 &lt { quick_tap_ms = <200>; };
 &mt { quick_tap_ms = <200>; };
 
-/ {
+
+/ { 
         behaviors {
-                rulang: russian_language { // unused for now
+                rulang: russian_language {
                 compatible = "zmk,behavior-mod-morph";
                 label = "RUS_LANG";
                 #binding-cells = <0>;
