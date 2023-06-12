@@ -9,5 +9,9 @@ include:
     shield: chocofi_right
   - board: nrfmicro_13
     shield: settings_reset
+  - board: nrfmicro_13_52833
+    shield: settings_reset
   - board: nrfmicro_13
     shield: test-board
+  - board: nrfmicro_13_52833
+    shield: test-board 

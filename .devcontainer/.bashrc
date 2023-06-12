@@ -23,6 +23,18 @@ build-test(){
     base-build nrfmicro_13 test-board
 }
 
+build-test-833(){
+    base-build nrfmicro_13_52833 test-board
+}
+
+build-reset(){
+    base-build nrfmicro_13 settings_reset
+}
+
+build-reset-833(){
+    base-build nrfmicro_13_52833 settings_reset
+}
+
 base-build() ( # use subshell
     set -e # to exit the subshell as soon as an error happens
     cd $ZMK_PATH
