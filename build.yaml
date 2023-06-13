@@ -7,6 +7,10 @@ include:
     shield: chocofi_left
   - board: nrfmicro_13
     shield: chocofi_right
+  - board: nrfmicro_13_52833
+    shield: tbk_mini_left
+  - board: nrfmicro_13_52833
+    shield: tbk_mini_right
   - board: nrfmicro_13
     shield: settings_reset
   - board: nrfmicro_13_52833

@@ -15,8 +15,8 @@ build-chocofi(){
 }
 
 build-tbk-mini(){
-    base-build nrfmicro_13 tbk_mini_left
-    base-build nrfmicro_13 tbk_mini_right
+    base-build nrfmicro_13_52833 tbk_mini_left
+    base-build nrfmicro_13_52833 tbk_mini_right
 }
 
 build-test(){
