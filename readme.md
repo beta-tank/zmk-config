@@ -6,3 +6,10 @@
 2. Rebuild container/codespace
 3. Run func in terminal inside container
 4. Get uf2 from ./buid folder
+
+# Online editor
+
+https://nickcoutsos.github.io/keymap-editor/
+
+Configured only for rt-22
+

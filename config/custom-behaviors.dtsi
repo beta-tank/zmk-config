@@ -1,0 +1,29 @@
+#include "base.dtsi"
+#include <behaviors.dtsi>
+
+// Behaviour: macro on hold, kp on tap
+#define HOLD_COMBO_BEHAVIOR(NAME, MACRO) \
+  b_##NAME: hold_tap_##NAME { \
+        compatible = "zmk,behavior-hold-tap"; \
+        label = str(HOLD_TAP_##NAME); \
+        #binding-cells = <2>; \
+        flavor = "tap-preferred"; \
+        tapping-term-ms = <HOLD_SWITHC_TAPPING_MS>; \
+        bindings = ##MACRO, <&kp>; \
+        quick_tap_ms = <HOLD_SWITHC_QUICK_TAP_MS>; \
+    };
+
+// Shortcut for call hold tap with macro
+#define htl(flavor, key) &flavor 0 key
+
+/* 
+// mod morph behavior for switch lang without combos
+rulang: russian_language {
+        compatible = "zmk,behavior-mod-morph";
+        label = "RUS_LANG";
+        #binding-cells = <0>;
+        bindings = <&kp LALT>, <&kp LC(SECOND_NUM)>;
+        mods = <(LSHIFT|RSHIFT)>;
+        keep-mods = <(LSHIFT|RSHIFT)>;
+        };
+*/
