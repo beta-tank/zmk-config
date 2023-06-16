@@ -25,7 +25,8 @@
         "spadin.zmk-tools",
         "eamodio.gitlens",
         "ms-azuretools.vscode-docker",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "trond-snekvik.devicetree"
       ], 
       "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
