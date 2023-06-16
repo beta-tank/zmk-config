@@ -1,0 +1,8 @@
+#define SWITCH_COMBO_TAP_MS 30
+#define SWITCH_COMBO_WAIT_MS 0
+#define HOLD_SWITHC_TAPPING_MS 150
+#define HOLD_SWITHC_QUICK_TAP_MS 150
+#define COMBO_TIMEOUT 200
+
+// str func 
+#define str(s) #s

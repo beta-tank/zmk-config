@@ -1,0 +1,69 @@
+#include "base.dtsi"
+
+// Combination for lang switching set in system
+#define ENG_NUM N2
+#define SECOND_NUM N1
+#define langswitch(num) LS(LC(num))
+
+/* Base macro and idea https://github.com/AlaaSaadAbdo/zmk-config/blob/master/config/macros.dtsi 
+#define MACRO(NAME, BINDINGS, WAITMS, TAPMS) \
+  macro_##NAME: macro_##NAME { \
+      compatible = "zmk,behavior-macro"; \
+      label = str(macro_##NAME); \
+      #binding-cells = <0>; \
+      wait-ms = <WAITMS>; \
+      tap-ms = <TAPMS>; \
+      bindings = <BINDINGS>; \
+  };
+
+// sample macro: 
+MACRO(nav, &macro_tap &kp LC(LS(N2)) &mo LWR &macro_pause_for_release &macro_release &mo LWR, 0, 10)
+*/
+
+// Combo: switch lang, than hold mo layer and waiting for input. After return to another lang
+#define SWITCH_LANG_AND_MO_LAYER_MACRO(NAME, LAYER, NUM, RETURN_NUM) \
+  m_##NAME: macro_##NAME { \
+      compatible = "zmk,behavior-macro"; \
+      label = str(macro_##NAME); \
+      #binding-cells = <0>; \
+      wait-ms = <SWITCH_COMBO_WAIT_MS>; \
+      tap-ms = <SWITCH_COMBO_TAP_MS>; \
+      bindings \
+        = <&macro_tap &kp langswitch(NUM)> \
+        , <&macro_press &mo LAYER> \
+        , <&macro_pause_for_release> \
+        , <&macro_tap_time SWITCH_COMBO_TAP_MS> \
+        , <&macro_tap &kp langswitch(RETURN_NUM)> \
+        , <&macro_release &mo LAYER> \ 
+        ; \
+  };
+
+// Macro: switch lang, than press key. After return to another lang
+#define SWITCH_LANG_AND_KP_MACRO(NAME, KEY, NUM, RETURN_NUM) \
+  m_##NAME: macro_##NAME { \
+      compatible = "zmk,behavior-macro"; \
+      label = str(macro_##NAME); \
+      #binding-cells = <0>; \
+      wait-ms = <SWITCH_COMBO_WAIT_MS>; \
+      tap-ms = <SWITCH_COMBO_TAP_MS>; \
+      bindings \
+        = <&macro_tap &kp langswitch(NUM)> \
+        , <&macro_tap &kp KEY> \
+        , <&macro_tap_time SWITCH_COMBO_TAP_MS> \
+        , <&macro_tap &kp langswitch(RETURN_NUM)> \
+        ; \
+  };
+
+// Macro: switch lang, then set to layer
+#define SWITCH_LANG_AND_TO_LAYER_MACRO(NAME, LAYER, NUM) \
+  m_##NAME: tom_##NAME { \
+      compatible = "zmk,behavior-macro"; \
+      label = str(tom_##NAME); \
+      #binding-cells = <0>; \
+      wait-ms = <SWITCH_COMBO_WAIT_MS>; \
+      tap-ms = <SWITCH_COMBO_TAP_MS>; \
+      bindings \
+        = <&macro_tap &kp langswitch(NUM)> \
+        , <&macro_tap &to LAYER> \
+        ; \
+  };
