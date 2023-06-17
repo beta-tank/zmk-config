@@ -8,6 +8,13 @@ config ZMK_SPLIT_BLE_ROLE_CENTRAL
 
 endif
 
+if SHIELD_TBK_MINI_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "TBK-Mini right"
+
+endif
+
 if SHIELD_TBK_MINI_LEFT || SHIELD_TBK_MINI_RIGHT
 
 config ZMK_SPLIT
