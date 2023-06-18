@@ -62,10 +62,10 @@
 //        | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | \ |
 //                           | ESC | SPC | TAB |   | ENT | BSPC | DEL |
                         bindings = <
-   &kp LWIN &kp GRAVE &kp Q &kp W &kp E &kp R &kp T         &kp Y &kp U  &kp I     &kp O   &kp P    &kp LBKT  &kp RBKT
-            &kp LCTRL &kp A &kp S &kp D &kp F &kp G         &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-            &kp LALT  &kp Z &kp X &kp C &kp V &kp B         &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
-            &lt RSE ESC &mt LSHFT SPACE &lt LWR TAB         &lt LWR RET &kp BSPC &lt RSE DEL
+   &kp LWIN &mt LWIN GRAVE &kp Q &kp W &kp E &kp R &kp T         &kp Y &kp U  &kp I     &kp O   &kp P    &mt RWIN  LBKT  &kp RBKT
+            &mt LCTRL RBKT &kp A &kp S &kp D &kp F &kp G         &kp H &kp J  &kp K     &kp L   &kp SEMI &mt RCTRL SQT
+            &mt LALT UNDER &kp Z &kp X &kp C &kp V &kp B         &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mt RALT  BSLH
+                 &lt RSE ESC &mt LSHFT SPACE &lt LWR TAB         &lt LWR RET &kp BSPC &lt RSE DEL
                         >;
                 };
                 rus_layer {
@@ -88,9 +88,9 @@
 //       |  +  |     |     |     |  @  |  RD |   |  RD |     |     |SHIFT|SCREEN|  ^  |
 //                         | ESC | SPC | TAB |   | ENT | BSPC | DEL |
                        bindings = <
-   &none &kp UNDER      &kp F1    &kp F2    &kp F3      &kp F4    &kp F5               &kp F6        &kp F7       &kp F8      &kp F9       &kp F10       &kp F11   &mt RGUI F12
+   &none &kp F1         &kp F2    &kp F3      &kp F4    &kp F5               &kp F6        &kp F7       &kp F8      &kp F9       &kp F10       &kp F11   &mt RGUI F12
          &mt LCTRL HASH &kp LPAR  &kp EQUAL &kp EXCL    &kp MINUS &kp LS(BSLH)         &kp AMPS      &kp LS(FSLH) &kp LS(SQT) &kp LS(SEMI) &kp RPAR      &kp DLLR
-         &mt LALT PLUS  &kp LC(Z) &kp LC(X) &kp LC(C)   &kp AT    &kp LC(LS(LA(B)))    &kp LC(LS(B)) &kp PRCNT    &trans      &kp LSHFT    &kp LG(LS(S)) &kp CARET
+         &kp LALT       &kp LC(Z) &kp LC(X) &kp LC(C)   &kp AT    &kp LC(LS(LA(B)))    &kp LC(LS(B)) &kp PRCNT    &trans      &kp LSHFT    &kp LG(LS(S)) &kp CARET
                                             &lt ADJ ESC &trans    &trans               &trans        &trans       &lt ADJ DEL
                        >;
                 };
@@ -101,9 +101,9 @@
 //       |      |  /  |  7  |  8  |  9  |  .  |   | VOLD| END | PRSC| PGDN | CALC | PREV |
 //                          |     |     | ADJ |   | ADJ |     |     |
                         bindings = <       
-   &trans &kp KP_NUM      &kp KP_MULTIPLY &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS        &kp C_VOL_UP &kp HOME &kp UP    &kp PG_UP &kp C_AL_MY_COMPUTER &kp C_NEXT &trans
-          &mt LCTRL EQUAL &kp KP_N0       &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_PLUS         &kp C_PP     &kp LEFT &kp DOWN  &kp RIGHT &kp K_APP            &kp CAPS
-          &trans          &kp KP_SLASH    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_DOT          &kp C_VOL_DN &kp END  &kp PSCRN &kp PG_DN &kp C_AL_CALC        &kp C_PREV
+   &trans &kp LWIN       &kp KP_MULTIPLY &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_MINUS        &kp C_VOL_UP &kp HOME &kp UP    &kp PG_UP &kp C_AL_MY_COMPUTER &kp C_NEXT &trans
+          &kp LCTRL      &kp KP_N0       &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_PLUS         &kp C_PP     &kp LEFT &kp DOWN  &kp RIGHT &kp K_APP            &kp CAPS
+          &mt LALT EQUAL &kp KP_SLASH    &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_DOT          &kp C_VOL_DN &kp END  &kp PSCRN &kp PG_DN &kp C_AL_CALC        &kp C_PREV
                                                     &trans    &trans    &lt ADJ TAB         &lt ADJ RET  &trans   &trans
                         >;
                 };
@@ -114,7 +114,7 @@
 //       | BTCLR|     |     |     |     |     |   |     |     |     |     |     | BTCLR|
 //                          |     |     |     |   |     |     |     |
                         bindings = <              
-   &sys_reset &bootloader  &none        &none        &out OUT_USB &out OUT_BLE &none              &none        &out OUT_BLE &out OUT_USB &none        &none         &bootloader &sys_reset
+   &sys_reset &bootloader  &none        &none        &out OUT_USB &out OUT_BLE &kp KP_NUM         &kp KP_NUM   &out OUT_BLE &out OUT_USB &none        &none         &bootloader &sys_reset
               &none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &none
               &bt BT_CLR   &none        &none        &none        &none        &tog GAME          &none        &none        &none        &none        &none         &bt BT_CLR
                                                      &trans       &none        &trans             &trans       &none        &trans
