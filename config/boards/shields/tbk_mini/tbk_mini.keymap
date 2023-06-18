@@ -56,10 +56,10 @@
 // | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |  \   |
 //                    | ESC | SPC | TAB |   | ENT | BSPC | DEL |
                         bindings = <
-    &kp GRAVE &kp Q &kp W &kp E &kp R &kp T         &kp Y &kp U  &kp I     &kp O   &kp P    &kp LBKT
-    &kp LCTRL &kp A &kp S &kp D &kp F &kp G         &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-    &kp LALT  &kp Z &kp X &kp C &kp V &kp B         &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
-    &lt RSE ESC &mt LSHFT SPACE &lt LWR TAB         &lt LWR RET &kp BSPC &lt RSE DEL
+    &mt LWIN GRAVE  &kp Q &kp W &kp E &kp R &kp T         &kp Y &kp U  &kp I     &kp O   &kp P    &mt LWIN  LBKT
+    &mt LCTRL RBKT  &kp A &kp S &kp D &kp F &kp G         &kp H &kp J  &kp K     &kp L   &kp SEMI &mt LCTRL  SQT
+    &mt LALT UNDER  &kp Z &kp X &kp C &kp V &kp B         &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mt RALT BSLH
+          &lt RSE ESC &mt LSHFT SPACE &lt LWR TAB         &lt LWR RET &kp BSPC &lt RSE DEL
                         >;
                 };
                 rus_layer {
@@ -82,9 +82,9 @@
 // |  +  |     |     |     |  @  |  RD |   |  RD |     |     |SHIFT|SCREEN|  ^  |
 //                   | ESC | SPC | TAB |   | ENT | BSPC | DEL |
                        bindings = <
-   &kp UNDER      &kp F1    &kp F2    &kp F3      &kp F4    &kp F5               &kp F6        &kp F7       &kp F8      &kp F9       &kp F10       &kp F11
+   &kp F1         &kp F2    &kp F3    &kp F4      &kp F5    &kp F6               &kp F7        &kp F8       &kp F9      &kp F10      &kp F11       &kp F12
    &mt LCTRL HASH &kp LPAR  &kp EQUAL &kp EXCL    &kp MINUS &kp LS(BSLH)         &kp AMPS      &kp LS(FSLH) &kp LS(SQT) &kp LS(SEMI) &kp RPAR      &kp DLLR
-   &mt LALT PLUS  &kp LC(Z) &kp LC(X) &kp LC(C)   &kp AT    &kp LC(LS(LA(B)))    &kp LC(LS(B)) &kp PRCNT    &trans      &kp LSHFT    &kp LG(LS(S)) &kp CARET
+   &kp LALT       &kp LC(Z) &kp LC(X) &kp LC(C)   &kp AT    &kp LC(LS(LA(B)))    &kp LC(LS(B)) &kp PRCNT    &trans      &kp LSHFT    &kp LG(LS(S)) &kp CARET
                                       &lt ADJ ESC &trans    &trans               &trans        &trans       &lt ADJ DEL
                        >;
                 };
