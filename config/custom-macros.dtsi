@@ -32,7 +32,6 @@ MACRO(nav, &macro_tap &kp LC(LS(N2)) &mo LWR &macro_pause_for_release &macro_rel
         = <&macro_tap &kp langswitch(NUM)> \
         , <&macro_press &mo LAYER> \
         , <&macro_pause_for_release> \
-        , <&macro_tap_time SWITCH_COMBO_TAP_MS> \
         , <&macro_tap &kp langswitch(RETURN_NUM)> \
         , <&macro_release &mo LAYER> \ 
         ; \
