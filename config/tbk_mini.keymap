@@ -65,10 +65,10 @@
 // | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |  \   |
 //                    | ESC | SPC | TAB |   | ENT | BSPC | DEL |
                         bindings = <
-    &mt LWIN GRAVE  &kp Q &kp W &kp E &kp R &kp T         &kp Y &kp U  &kp I     &kp O   &kp P    &htb RWIN LBKT
-    &mt LCTRL RBKT  &kp A &kp S &kp D &kp F &kp G         &kp H &kp J  &kp K     &kp L   &kp SEMI &htb RCTRL SQT
-    &mt LALT UNDER  &kp Z &kp X &kp C &kp V &kp B         &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mt RALT BSLH
-          &lt RSE ESC &mt LSHFT SPACE &lt LWR TAB         &lt LWR RET &kp BSPC &lt RSE DEL
+    &htb LWIN GRAVE  &kp Q &kp W &kp E &kp R &kp T         &kp Y &kp U  &kp I     &kp O   &kp P    &htb RWIN LBKT
+    &mt  LCTRL RBKT  &kp A &kp S &kp D &kp F &kp G         &kp H &kp J  &kp K     &kp L   &kp SEMI &htb RCTRL SQT
+    &mt  LALT UNDER  &kp Z &kp X &kp C &kp V &kp B         &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mt  RALT BSLH
+           &lt RSE ESC &mt LSHFT SPACE &lt LWR TAB         &lt LWR RET &kp BSPC &lt RSE DEL
                         >;
                 };
                 rus_layer {
