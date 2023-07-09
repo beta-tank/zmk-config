@@ -91,7 +91,7 @@
 // |  +  |     |     |     |  @  |  RD |   |  RD |     |     |SHIFT|SCREEN|  ^  |
 //                   | ESC | SPC | TAB |   | ENT | BSPC | DEL |
                        bindings = <
-   &kp F1         &kp F2    &kp F3    &kp F4      &kp F5    &kp F6               &kp F7        &kp F8       &kp F9      &kp F10      &kp F11       &kp F12
+           &kp F1         &kp F2    &kp F3    &kp F4      &kp F5    &kp F6               &kp F7        &kp F8       &kp F9      &kp F10      &kp F11       &kp F12
    &mt LCTRL HASH &kp LPAR  &kp EQUAL &kp EXCL    &kp MINUS &kp LS(BSLH)         &kp AMPS      &kp LS(FSLH) &kp LS(SQT) &kp LS(SEMI) &kp RPAR      &kp DLLR
    &kp LALT       &kp LC(Z) &kp LC(X) &kp LC(C)   &kp AT    &kp LC(LS(LA(B)))    &kp LC(LS(B)) &kp PRCNT    &trans      &kp LSHFT    &kp LG(LS(S)) &kp CARET
                                       &lt ADJ ESC &trans    &trans               &trans        &trans       &lt ADJ DEL
@@ -128,7 +128,7 @@
                         bindings = <
    &kp LALT  &kp ESC   &kp Q &kp W &kp E &kp R         &kp T &kp Y &kp U  &kp I     &kp O   &kp P  
    &kp TAB   &kp LSHFT &kp A &kp S &kp D &kp F         &kp G &kp H &kp J  &kp K     &kp L   &kp C_VOL_UP
-   &tog GAME &kp LCTRL &kp Z &kp X &kp C &kp V         &kp B &kp N &kp M  &kp COMMA &kp DOT &kp C_VOL_DN
+   &tog GAME &kp LCTRL &kp Z &kp X &kp C &kp V         &kp B &kp N &kp M  &kp COMMA &kp F12 &kp C_VOL_DN
                      &kp LCTRL &kp SPACE &kp Q         &lt LWR RET &kp LWIN &lt RSE DEL
                         >;
                 };
