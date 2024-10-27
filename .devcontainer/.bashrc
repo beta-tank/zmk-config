@@ -9,6 +9,11 @@ build-rt22(){
     base-build nrfmicro_13 rt-22_right
 }
 
+build-rt22-nn(){
+    base-build nice_nano rt-22_left
+    base-build nice_nano rt-22_right
+}
+
 build-rt22-legacy(){
     base-build nrfmicro_13 rt-22-legacy_left
     base-build nrfmicro_13 rt-22-legacy_right
@@ -24,10 +29,6 @@ build-tbk-mini(){
     base-build nrfmicro_13_52833 tbk_mini_right
 }
 
-build-reset(){
-    base-build nrfmicro_13 settings_reset
-}
-
 build-test(){
     base-build nrfmicro_13 test-board
 }
@@ -36,12 +37,20 @@ build-test-833(){
     base-build nrfmicro_13_52833 test-board
 }
 
+build-test-nn(){
+    base-build nice_nano test-board
+}
+
 build-reset(){
     base-build nrfmicro_13 settings_reset
 }
 
 build-reset-833(){
     base-build nrfmicro_13_52833 settings_reset
+}
+
+build-reset-nn(){
+    base-build nice_nano settings_reset
 }
 
 base-build() ( # use subshell
@@ -53,7 +62,8 @@ base-build() ( # use subshell
         -d build \
         -b $1 \
         -- -DZMK_CONFIG=$WORKPACE_PATH/config \
-        -DSHIELD=$2 # build
+        -
+        =$2 # build
     FW_FILE="$WORKPACE_PATH/$BUILD_SUBFOLDER/$2_$1-zmk.uf2"
     rm -rf $FW_FILE # rm FW file in target folder
     mkdir -p $WORKPACE_PATH/$BUILD_SUBFOLDER
