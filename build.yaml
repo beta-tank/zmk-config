@@ -1,25 +1,21 @@
 include:
-  - board: nrfmicro_13
+  - board: nrfmicro/nrf52840
     shield: rt-22_left
-  - board: nrfmicro_13
+  - board: nrfmicro/nrf52840
     shield: rt-22_right
-  - board: nrfmicro_13
-    shield: rt-22-legacy_left
-  - board: nrfmicro_13
-    shield: rt-22-legacy_right
-  - board: nrfmicro_13
-    shield: chocofi_left
-  - board: nrfmicro_13
-    shield: chocofi_right
-  - board: nrfmicro_13_52833
+  - board: nice_nano
+    shield: rt-22_left
+  - board: nice_nano
+    shield: rt-22_right
+  - board: nrfmicro/nrf52833
     shield: tbk_mini_left
-  - board: nrfmicro_13_52833
+  - board: nrfmicro/nrf52833
     shield: tbk_mini_right
-  - board: nrfmicro_13
+  - board: nrfmicro/nrf52840
     shield: settings_reset
-  - board: nrfmicro_13_52833
+  - board: nrfmicro/nrf52833
     shield: settings_reset
-  - board: nrfmicro_13
+  - board: nrfmicro/nrf52840
     shield: test-board
-  - board: nrfmicro_13_52833
+  - board: nrfmicro/nrf52833
     shield: test-board 
