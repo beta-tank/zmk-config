@@ -53,21 +53,20 @@ build-reset-nn(){
     base-build nice_nano settings_reset
 }
 
-base-build() ( # use subshell
+base-build() ( # use a subshell
     set -e # to exit the subshell as soon as an error happens
     cd $ZMK_PATH
-    rm -rf build # clean buld folder
+    rm -rf build # clean the build folder
     west build \
         -s app \
         -d build \
         -b $1 \
         -- -DZMK_CONFIG=$WORKPACE_PATH/config \
-        -
-        =$2 # build
+        -DSHIELD=$2 # build
     FW_FILE="$WORKPACE_PATH/$BUILD_SUBFOLDER/$2_$1-zmk.uf2"
-    rm -rf $FW_FILE # rm FW file in target folder
+    rm -rf $FW_FILE # remove the FW file from the target folder
     mkdir -p $WORKPACE_PATH/$BUILD_SUBFOLDER
-    cp build/zephyr/zmk.uf2 $FW_FILE # copy FW to target folder
+    cp build/zephyr/zmk.uf2 $FW_FILE # copy FW to the target folder
     echo -e "${Green}SUCCESSFULLY build $FW_FILE${Color_Off}"
 )
 
