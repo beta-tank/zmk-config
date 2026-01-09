@@ -5,59 +5,68 @@ Color_Off='\033[0m'       # Text Reset
 Green='\033[0;32m'        # Green
 
 build-rt22(){
-    base-build nrfmicro_13 rt-22_left
-    base-build nrfmicro_13 rt-22_right
+    base-build nrfmicro/nrf52840 rt-22_left
+    base-build nrfmicro/nrf52840 rt-22_right
+}
+
+build-rt22-nn(){
+    base-build nice_nano rt-22_left
+    base-build nice_nano rt-22_right
 }
 
 build-rt22-legacy(){
-    base-build nrfmicro_13 rt-22-legacy_left
-    base-build nrfmicro_13 rt-22-legacy_right
+    base-build nrfmicro/nrf52840 rt-22-legacy_left
+    base-build nrfmicro/nrf52840 rt-22-legacy_right
 }
 
 build-chocofi(){
-    base-build nrfmicro_13 chocofi_left
-    base-build nrfmicro_13 chocofi_right
+    base-build nrfmicro/nrf52840 chocofi_left
+    base-build nrfmicro/nrf52840 chocofi_right
 }
 
 build-tbk-mini(){
-    base-build nrfmicro_13_52833 tbk_mini_left
-    base-build nrfmicro_13_52833 tbk_mini_right
-}
-
-build-reset(){
-    base-build nrfmicro_13 settings_reset
+    base-build nrfmicro/nrf52833 tbk_mini_left
+    base-build nrfmicro/nrf52833 tbk_mini_right
 }
 
 build-test(){
-    base-build nrfmicro_13 test-board
+    base-build nrfmicro/nrf52840 test-board
 }
 
 build-test-833(){
-    base-build nrfmicro_13_52833 test-board
+    base-build nrfmicro/nrf52833 test-board
+}
+
+build-test-nn(){
+    base-build nice_nano test-board
 }
 
 build-reset(){
-    base-build nrfmicro_13 settings_reset
+    base-build nrfmicro/nrf52840 settings_reset
 }
 
 build-reset-833(){
-    base-build nrfmicro_13_52833 settings_reset
+    base-build nrfmicro/nrf52833 settings_reset
 }
 
-base-build() ( # use subshell
+build-reset-nn(){
+    base-build nice_nano settings_reset
+}
+
+base-build() ( # use a subshell
     set -e # to exit the subshell as soon as an error happens
     cd $ZMK_PATH
-    rm -rf build # clean buld folder
+    rm -rf build # clean the build folder
     west build \
         -s app \
         -d build \
         -b $1 \
         -- -DZMK_CONFIG=$WORKPACE_PATH/config \
         -DSHIELD=$2 # build
-    FW_FILE="$WORKPACE_PATH/$BUILD_SUBFOLDER/$2_$1-zmk.uf2"
-    rm -rf $FW_FILE # rm FW file in target folder
+    FW_FILE="$WORKPACE_PATH/$BUILD_SUBFOLDER/${2//\//_}_${1//\//_}-zmk.uf2"
+    rm -rf $FW_FILE # remove the FW file from the target folder
     mkdir -p $WORKPACE_PATH/$BUILD_SUBFOLDER
-    cp build/zephyr/zmk.uf2 $FW_FILE # copy FW to target folder
+    cp build/zephyr/zmk.uf2 $FW_FILE # copy FW to the target folder
     echo -e "${Green}SUCCESSFULLY build $FW_FILE${Color_Off}"
 )
 
